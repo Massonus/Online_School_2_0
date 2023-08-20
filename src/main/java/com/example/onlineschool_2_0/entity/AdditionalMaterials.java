@@ -22,13 +22,15 @@ public class AdditionalMaterials {
     private String name;
 
     @NotBlank(message = "lectureId can not be Blank")
-    private Integer lectureId;
+    private Long lectureId;
 
     @NotBlank(message = "video can not be Blank")
     private String video;
 
     @NotBlank(message = "Name can not be Blank")
     private String book;
+
+    private Boolean isAvailable;
 
     ResourceType resourceType;
 

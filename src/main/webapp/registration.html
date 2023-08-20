@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Registration</title>
+
+    <script>
+        function validationOfForm() {
+            let name = document.forms["Reg"]["name"].value;
+            let pass = document.forms["Reg"]["pass"].value;
+            let email = document.forms["Reg"]["email"].value;
+            let isAvailable = true;
+
+            if (name === "") {
+                document.getElementById("usernameError").textContent = "Please fill this line";
+                isAvailable = false;
+            }
+
+            if (pass === "") {
+                document.getElementById("passwordError").textContent = "Please fill this line";
+                isAvailable = false;
+            }
+
+            if (email === "") {
+                document.getElementById("emailError").textContent = "Please fill this line";
+                isAvailable = false;
+            }
+
+            return isAvailable;
+        }
+    </script>
+
+</head>
+
+<body>
+<div class="form-row">
+    <form name="Reg" method="post" onsubmit="return validationOfForm()" class="form-inline">
+
+        <input type="text" name="name" class="form-control" placeholder="username"><br>
+        <span id="usernameError" class="error"></span><br><br>
+
+        <input type="password" name="pass" class="form-control" placeholder="user password"><br>
+        <span id="passwordError" class="error"></span><br><br>
+
+        <input type="email" name="email" class="form-control" placeholder="email"><br>
+        <span id="emailError" class="error"></span><br><br>
+
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+        <button type="submit">Save</button>
+    </form>
+
+</div>
+
+</body>
+</html>
