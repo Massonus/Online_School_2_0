@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 5</title>
+    <script>
+        let userAnswer = [];
+        let correctAnswer = [];
+        function questionTest() {
+            for (let i = 0; i < 5; i++) {
+                switch (i) {
+                    case 0:
+                        var answer = prompt("What is the capital of Great Britain\n 1 - Washington,\n 2 - London,\n 3 - Kiev");
+                        correctAnswer.push(2);
+                        userAnswer.push(answer);
+                        break;
+                    case 1:
+                        var answer = prompt("How many chromosomes must be?\n 1 - 47,\n 2 - 46,\n 3 - 23");
+                        correctAnswer.push(2);
+                        userAnswer.push(answer);
+                        break;
+                    case 2:
+                        var answer = prompt("What continent is Ukraine on?\n 1 - Africa,\n 2 - Eurasia,\n 3 - North America");
+                        correctAnswer.push(2);
+                        userAnswer.push(answer);
+                        break;
+                    case 3:
+                        var answer = prompt("Correct answer about 22 * 3?\n 1 - 66,\n 2 - 65,\n 3 - 78");
+                        correctAnswer.push(1);
+                        userAnswer.push(answer);
+                        break;
+                    case 4:
+                        var answer = prompt("Correct answer about 9 + 11?\n 1 - 19,\n 2 - 17,\n 3 - 20");
+                        correctAnswer.push(3);
+                        userAnswer.push(answer);
+                        break;
+                }
+            }
+            let result = 0;
+            let percent = 0;
+            for (let j = 0; j < 5; j++) {
+                result = `${result}Correct answer - ${correctAnswer[j]}, Your answer - ${userAnswer[j]}.<br>`;
+                if (parseInt(correctAnswer[j]) === parseInt(userAnswer[j])) {
+                    percent++;
+                }
+            }
+            document.getElementById("finalResult").innerHTML = "<h3>"+ result + "</h3><h3>Progress - " + (percent / 5 * 100) + "%" + ".</h3>";
+        }
+    </script>
+</head>
+<body>
+<h2>
+    Test 5</h2>
+<h2>
+    <button onclick="questionTest()">Start</button>
+</h2>
+<p id="finalResult"></p>
+</body>
+</html>
